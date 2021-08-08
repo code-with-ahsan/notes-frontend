@@ -1,19 +1,24 @@
 import "./App.css";
-import axios from "axios";
-import { useState } from "react";
+// import axios from "axios";
+import { useEffect, useState } from "react";
+import DUMMY_NOTES from "./DUMMY_NOTES";
 
 function App() {
   const [notesList, setNotesList] = useState<Array<any>>([]);
 
   // get notes method
-  async function getNotes() {
-    try {
-      const response = await axios.get("http://localhost:5000/notes");
-      setNotesList(response.data.notes);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  // async function getNotes() {
+  //   try {
+  //     const response = await axios.get("http://localhost:5000/notes");
+  //     setNotesList(response.data.notes);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+
+  useEffect(() => {
+    setNotesList(DUMMY_NOTES);
+  }, []);
 
   console.log(notesList);
 
@@ -21,14 +26,15 @@ function App() {
     //
     <div className="App">
       <div>Notes Application</div>
-      <div>
-        <button onClick={getNotes}>Click Me!</button>
-      </div>
-      <div>
-        {/* SHOW DETAILS of the first element */}
-        <h4>{notesList[0]?.text}</h4>
-        <h5>{notesList[0]?.link}</h5>
-      </div>
+      {notesList.map((noteItem) => {
+        return (
+          <div>
+            {/* SHOW DETAILS of the first element */}
+            <h4>{noteItem.text}</h4>
+            <h5>{noteItem.link}</h5>
+          </div>
+        );
+      })}
     </div>
   );
 }
