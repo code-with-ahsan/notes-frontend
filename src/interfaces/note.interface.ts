@@ -1,4 +1,5 @@
 interface INote {
+  id: number;
   text: string;
   link: string;
 }
