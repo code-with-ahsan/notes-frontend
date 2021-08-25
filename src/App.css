@@ -14,3 +14,11 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.btn.add-button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  border-radius: 50%;
+  font-size: 24px;
+}
