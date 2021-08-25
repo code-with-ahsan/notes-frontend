@@ -28,14 +28,23 @@
   background-color: #ff7eb9;
 }
 
-.note:hover {
+.note:hover,
+.note.note--focused {
   transform: scale(1.5);
   z-index: 5;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
+.note .btn-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
 .note__text {
   flex: 1;
+  outline: none;
+  margin-top: 10px;
 }
 
 .note__link {
