@@ -1,0 +1,183 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2021-08-26T11:22:09.650Z",
+  "__export_source": "insomnia.desktop.app:v2021.4.1",
+  "resources": [
+    {
+      "_id": "req_ca641a5c3626475589054efa667bff21",
+      "parentId": "wrk_a7d606bb0604484db36030f91eaaa7c2",
+      "modified": 1629913870917,
+      "created": 1629546854556,
+      "url": "https://cwa-notes-backend.herokuapp.com/notes/6126826f44ba8f0016ec7561",
+      "name": "Update Note by Id",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"text\": \"CWA Learners Friday\",\n  \"link\": \"https://github.com/code-with-ahsan\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_3feb5199dc6740319dd5cb363197627a"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1629543125968,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_a7d606bb0604484db36030f91eaaa7c2",
+      "parentId": null,
+      "modified": 1629546854514,
+      "created": 1629546854514,
+      "name": "Notes App Production",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_f24cbbcac7ba427982608936c1daee58",
+      "parentId": "wrk_a7d606bb0604484db36030f91eaaa7c2",
+      "modified": 1629932721622,
+      "created": 1629546854552,
+      "url": "https://cwa-notes-backend.herokuapp.com/notes/6126cbc9eb437d001674724c",
+      "name": "Delete Note by Id",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1629309145966,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_252d67138ec94a1789670a6cbb665704",
+      "parentId": "wrk_a7d606bb0604484db36030f91eaaa7c2",
+      "modified": 1629546888002,
+      "created": 1629546854549,
+      "url": "https://cwa-notes-backend.herokuapp.com/notes/6120e2b9fdcea48cc863adaf",
+      "name": "Get Note By Id",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1629309133130,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_0cfe14e45e224477a88dd02048e89530",
+      "parentId": "wrk_a7d606bb0604484db36030f91eaaa7c2",
+      "modified": 1629974424721,
+      "created": 1629546854546,
+      "url": "https://cwa-notes-backend.herokuapp.com/notes",
+      "name": "Add Note",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"text\" : \"Ibtesam\",\n\t\"link\" : \"https://twitch.tv/CodeWithAhsan\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_209f6261868342e6a29538171affaea7"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1629309122209,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_230c92d6e7e245cd812a7c1ec355b18a",
+      "parentId": "wrk_a7d606bb0604484db36030f91eaaa7c2",
+      "modified": 1629546862961,
+      "created": 1629546854541,
+      "url": "https://cwa-notes-backend.herokuapp.com/notes",
+      "name": "Get Notes List",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1629308908691,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_fc867640acd74d76967398ab123cae7e",
+      "parentId": "wrk_a7d606bb0604484db36030f91eaaa7c2",
+      "modified": 1629546854521,
+      "created": 1629546854521,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1629308879803,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_84676349ab1e4c18abd9e872104c97d0",
+      "parentId": "wrk_a7d606bb0604484db36030f91eaaa7c2",
+      "modified": 1629546854532,
+      "created": 1629546854532,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_1edbee24612f49b5b960c7de6c18516b",
+      "parentId": "wrk_a7d606bb0604484db36030f91eaaa7c2",
+      "modified": 1629546854584,
+      "created": 1629546854536,
+      "fileName": "Notes App Production",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}
