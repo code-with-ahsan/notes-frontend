@@ -6,9 +6,15 @@ type Props = {
   note: INote;
   onNoteUpdate: (note: INote) => void;
   onNoteDelete: (note: INote) => void;
+  onNoteEditClick: (note: INote) => void;
 };
 
-const Note: FC<Props> = ({ note, onNoteUpdate, onNoteDelete }) => {
+const Note: FC<Props> = ({
+  note,
+  onNoteUpdate,
+  onNoteDelete,
+  onNoteEditClick,
+}) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const noteTextUpdated = (event: FocusEvent<HTMLDivElement>) => {
@@ -49,6 +55,14 @@ const Note: FC<Props> = ({ note, onNoteUpdate, onNoteDelete }) => {
       <div className="note__link">
         <a href={note.link}>link</a>
       </div>
+      <button
+        onClick={() => {
+          onNoteEditClick(note);
+        }}
+        className="btn btn-sm btn-dark"
+      >
+        Edit
+      </button>
     </div>
   );
 };

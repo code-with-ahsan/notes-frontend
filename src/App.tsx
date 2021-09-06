@@ -10,22 +10,31 @@ import {
 } from "./services/notesService";
 import { Button, FloatingLabel, Modal, Form } from "react-bootstrap";
 
+enum ModalModes {
+  Add,
+  Edit,
+}
+
 function App() {
   const [notesList, setNotesList] = useState<Array<INote>>([]);
   const [showAddNoteModal, setShowAddNoteModal] = useState(false);
-  const [newNote, setNewNote] = useState<Partial<INote>>({
+  const [modalMode, setModalMode] = useState<ModalModes>(ModalModes.Add);
+  const [modalNote, setModalNote] = useState<Partial<INote>>({
     link: "",
     text: "",
   });
 
   const handleCloseAddModal = () => {
-    setNewNote({
+    setModalNote({
       link: "",
       text: "",
     });
     setShowAddNoteModal(false);
   };
-  const handleShowAddModal = () => setShowAddNoteModal(true);
+  const handleShowAddModal = () => {
+    setModalMode(ModalModes.Add);
+    setShowAddNoteModal(true);
+  };
   // App components renders the first time
   useEffect(() => {
     getNotesFromServer();
@@ -56,10 +65,20 @@ function App() {
     setNotesList(remainingNotes);
   };
 
-  const addNote = async () => {
-    const savedNote = await createNote(newNote);
-    setNotesList([...notesList, savedNote]);
+  const onModalFormSubmit = async () => {
+    if (modalMode === ModalModes.Add) {
+      const savedNote = await createNote(modalNote);
+      setNotesList([...notesList, savedNote]);
+    } else if (modalMode === ModalModes.Edit) {
+      updateNoteItem(modalNote as INote);
+    }
     handleCloseAddModal();
+  };
+
+  const editNote = (note: INote) => {
+    setModalNote(note);
+    setModalMode(ModalModes.Edit);
+    setShowAddNoteModal(true);
   };
 
   return (
@@ -75,18 +94,21 @@ function App() {
 
       <Modal show={showAddNoteModal} onHide={handleCloseAddModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Note</Modal.Title>
+          <Modal.Title>
+            {modalMode === ModalModes.Add ? "Add" : "Edit"} Note
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <FloatingLabel controlId="floatingTextarea2" label="Text">
             <Form.Control
               onChange={(event) => {
                 const newVal = event.currentTarget.value;
-                setNewNote({
-                  ...newNote,
+                setModalNote({
+                  ...modalNote,
                   text: newVal,
                 });
               }}
+              value={modalNote.text}
               as="textarea"
               placeholder="Enter your note text"
               style={{ height: "100px" }}
@@ -100,11 +122,12 @@ function App() {
             <Form.Control
               onChange={(event) => {
                 const newVal = event.currentTarget.value;
-                setNewNote({
-                  ...newNote,
+                setModalNote({
+                  ...modalNote,
                   link: newVal,
                 });
               }}
+              value={modalNote.link}
               type="url"
               placeholder="Enter note url"
             />
@@ -114,8 +137,8 @@ function App() {
           <Button variant="secondary" onClick={handleCloseAddModal}>
             Close
           </Button>
-          <Button variant="primary" onClick={addNote}>
-            Create
+          <Button variant="primary" onClick={onModalFormSubmit}>
+            {modalMode === ModalModes.Add ? "Create" : "Update"}
           </Button>
         </Modal.Footer>
       </Modal>
@@ -127,6 +150,7 @@ function App() {
               onNoteDelete={deleteNoteItem}
               onNoteUpdate={updateNoteItem}
               key={index}
+              onNoteEditClick={editNote}
             />
           );
         })}
